@@ -14,7 +14,7 @@ sudo apt-get install -y --no-install-recommends unzip p7zip-full sox libsox-dev 
 export PATH=/opt/conda/bin:$PATH
 rm -rf src
 pip install -r $DIR/../requirements.txt
-pip uninstall -y torchvision || true
+# pip uninstall -y torchvision || true
 
 export PATH=/opt/conda/bin:$PATH
 conda install -y sphinx==1.8.2 pandas
@@ -25,13 +25,13 @@ pip install -e git+git://github.com/pytorch/pytorch_sphinx_theme.git#egg=pytorch
 # this is a workaround to the issue.
 pip install sphinx-gallery tqdm matplotlib ipython pillow==4.1.1
 
-# Install torchvision from conda (and install torch along with it)
-if [[ $(pip show torch) ]]; then
-  # Clean up previous PyTorch installations
-  pip uninstall -y torch || true
-  pip uninstall -y torch || true
-fi
-conda install -c pytorch torchvision
+# # Install torchvision from conda (and install torch along with it)
+# if [[ $(pip show torch) ]]; then
+#   # Clean up previous PyTorch installations
+#   pip uninstall -y torch || true
+#   pip uninstall -y torch || true
+# fi
+# conda install -c pytorch torchvision
 
 # Install torchaudio from source
 git clone https://github.com/pytorch/audio --quiet
